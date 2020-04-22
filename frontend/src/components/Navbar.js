@@ -41,13 +41,16 @@ class NavBar extends React.Component {
         </a>
       </div>
       <div className={`navbar-menu ${this.state.navMobileOpen ? 'is-active' : ''}`}>
-        <div className="navbar-item">
-          {isLoggedIn && <div className="">
-            <Link to="/profile">
-              Profile
-            </Link>
-          </div>}
-        </div>
+        {isLoggedIn && <div className="navbar-item">
+          <Link to="/profile">
+            Profile
+          </Link>
+        </div>}
+        {isLoggedIn && <div className="navbar-item">
+          <Link to="/addlocation">
+            Add Location
+          </Link>
+        </div>}
         {!isLoggedIn && <div className="navbar-item">
           <Link to="/register">Register</Link>
         </div>}
