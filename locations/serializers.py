@@ -1,25 +1,15 @@
 from rest_framework import serializers
-from .models import UserProfile, PreviousLocations
+from .models import PreviousLocation
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-class PreviousLocationsSerializer(serializers.ModelSerializer):
+class PreviousLocationSerializer(serializers.ModelSerializer):
 
   class Meta:
-    model = PreviousLocations
-    fields = ('country', 'country_code', 'longitude', 'latitude')
+    model = PreviousLocation
+    fields = ('country', 'country_code', 'longitude', 'latitude', 'visitors')
 
-class UserProfileSerializer(serializers.ModelSerializer):
-
-  class Meta:
-    model = UserProfile
-    fields = ('user', 'previous_locations')
-
-class PopulateUserProfileSerializer(UserProfileSerializer):
-
-  previous_locations = PreviousLocationsSerializer(many=True)
-
-  class Meta:
-    model = UserProfile
-    fields = ('user', 'previous_locations')
+    extra_kwargs = {
+      'visitors': {'required':False}
+    }

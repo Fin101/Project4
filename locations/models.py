@@ -1,14 +1,18 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 # Create your models here.
-class PreviousLocations(models.Model):
+class PreviousLocation(models.Model):
   country = models.CharField(max_length=50)
   country_code = models.CharField(max_length=3)
   longitude = models.FloatField()
   latitude = models.FloatField()
+  visitors = models.ManyToManyField(
+    User,
+    related_name='previous_locations',
+    blank=True
+  )
 
-class UserProfile(models.Model):
-  user = models.OneToOneField(User, on_delete=models.CASCADE)
-  # user = models.ForeignKey(User, related_name='', on_delete=models.CASCADE)
-  previous_locations = models.ManyToManyField(PreviousLocations, related_name='user_profile', blank=True)
+  def __str__(self):
+    return f'{self.country}'

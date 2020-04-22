@@ -47,7 +47,6 @@ class Login extends React.Component {
           onSubmit={(event) => this.handleSubmit(event)}
         >
           <div className="field">
-            {/* <label className="label">Email</label> */}
             <div className="control has-icons-left has-icons-right">
               <input
                 onChange={(event) => this.handleChange(event)}
@@ -57,7 +56,7 @@ class Login extends React.Component {
                 placeholder="Username"
               />
               <span className="icon is-small is-left">
-                <i className="fas fa-envelope"></i>
+                <i className="fas fa-user"></i>
               </span>
               <span className="icon is-small is-right">
                 <i className="fas fa-check"></i>
@@ -69,7 +68,6 @@ class Login extends React.Component {
           </div>
 
           <div className="field">
-            {/* <label className="label">Password</label> */}
             <div className="control has-icons-left has-icons-right">
               <input
                 onChange={(event) => this.handleChange(event)}
@@ -94,7 +92,6 @@ class Login extends React.Component {
           </div>
         </form>
       </div>
-      {/* </div> */}
     </section>
   }
 }
