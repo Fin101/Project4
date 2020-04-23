@@ -47,7 +47,7 @@ class NavBar extends React.Component {
           </Link>
         </div>}
         {isLoggedIn && <div className="navbar-item">
-          <Link to="/addlocation">
+          <Link to="/searchlocation">
             Add Location
           </Link>
         </div>}

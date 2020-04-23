@@ -8,14 +8,14 @@ import './style.scss'
 import Register from './components/Register'
 import Profile from './components/Profile'
 import Navbar from './components/NavBar'
-import Addlocation from './components/AddLocation'
+import SearchLocation from './components/SearchLocation'
 
 
 const App = () => {
   return <HashRouter>
     <Navbar />
     <Switch>
-      <Route exact path="/addlocation" component={Addlocation} />
+      <Route exact path="/searchlocation" component={SearchLocation} />
       <Route exact path="/profile" component={Profile} />
       <Route exact path="/register" component={Register} />
       <Route exact path="/login" component={Login} />

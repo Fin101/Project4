@@ -26,7 +26,7 @@ class MyProfile extends React.Component {
   render() {
     return <>
       <section className="hero is-medium is-primary is-bold">
-        <div className="hero-body">
+        <div className="hero-body profile-hero">
           <div className="container">
             <h1 className="title">
               Welcome {this.state.myProfile.username}
@@ -37,12 +37,14 @@ class MyProfile extends React.Component {
           </div>
         </div>
       </section>
-      <section>
-        <button className="button is-normal">
-          <Link to={'/addlocation'}>
-            Add Location
-          </Link>
-        </button>
+      <section className="section">
+        <div className="container">
+          <button className="button is-normal">
+            <Link to={'/searchlocation'}>
+              Add Location
+            </Link>
+          </button>
+        </div>
       </section>
     </>
   }
