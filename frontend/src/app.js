@@ -7,7 +7,7 @@ import 'bulma'
 import './style.scss'
 import Register from './components/Register'
 import Profile from './components/Profile'
-import Navbar from './components/NavBar'
+import Navbar from './components/Navbar'
 import SearchLocation from './components/SearchLocation'
 
 
