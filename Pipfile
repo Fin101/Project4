@@ -7,10 +7,11 @@ verify_ssl = true
 pylint = "*"
 
 [packages]
-django = "*"
+django = "==2.2.12"
 djangorestframework = "*"
 pyjwt = "*"
 psycopg2-binary = "*"
+django-heroku = "*"
 
 [requires]
 python_version = "3.7"

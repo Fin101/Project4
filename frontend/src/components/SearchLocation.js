@@ -42,11 +42,18 @@ class SearchLocation extends React.Component {
     })[0]
     console.log(filteredCountry)
 
+    const countryObj = {
+      name: filteredCountry.name,
+      countryCode: filteredCountry.alpha3Code,
+      lat: filteredCountry.latlng[0],
+      long: filteredCountry.latlng[1]
+    }
+
+    console.log(countryObj)
+
   }
 
   render() {
-
-    // console.log(this.state.query)
 
     return <>
       <section className="hero is-medium is-primary is-bold">
