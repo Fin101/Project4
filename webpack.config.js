@@ -5,10 +5,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   entry: './src/app.js',
   context: path.resolve(__dirname, 'frontend'),
-  // output: {
-  //   filename: 'bundle.js',
-  //   path: path.resolve(__dirname, 'frontend/dist')
-  // },
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'frontend/dist')
+  },
   module: {
     rules: [
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
