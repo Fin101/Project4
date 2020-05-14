@@ -59,17 +59,17 @@ class SearchLocation extends React.Component {
       <section className="hero is-medium is-primary is-bold">
         <div className="hero-body search-hero">
           <div className="container">
-            <h1 className="title">
-              Add Location
+            <h1 id="hero-header">
+              Travel Log
             </h1>
-            <h2 className="subtitle">
+            <h2 id="hero-subheader">
               Your journey starts here
             </h2>
           </div>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" id="searchbar">
         <div className="container">
           <div className="field has-addons">
             <div className="control is-expanded">
@@ -121,7 +121,7 @@ class SearchLocation extends React.Component {
                       id={country.name}
                       onClick={(event) => this.handleClick(event)}
                     >
-                      Add Location
+                      Add Country
                     </button>
                   </div>
                 </div>

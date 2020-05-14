@@ -1,11 +1,70 @@
 html, body {
   height: 100vh;
-  background-color: grey;
+  background-color: rgb(192, 192, 192);
   // align-content: center !important;
 } 
 
 .profile-hero, .search-hero {
-  background-image: url('https://www.mepbsr.org/wp-content/uploads/2015/05/005746_Christian-Bothner_www.nordnorge.com_Moskenes1-1024x314.jpg');
-    background-position: center;
-    background-size: cover;
+  background-image: url('https://wttc.org/DesktopModules/MVC/Carousel/images/693/1_20200420110734_WTTC%20TogetherInTravel%20Image.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 500px;
+}
+
+#hero-header, #hero-subheader {
+  font-family: Chalkduster;
+  color: black;
+  font-weight: bold;
+}
+
+.card {
+  // background-color: rgb(158, 158, 158);
+  border-radius: 10px;
+}
+
+.card img {
+  border-radius: 10px 10px 0px 0px;
+}
+
+.card h1 {
+  font-weight: bold;
+}
+
+#hero-header {
+  font-size: 4rem;
+text-transform: uppercase;
+}
+
+#hero-subheader {
+  font-weight: bold;
+}
+
+#searchbar {
+  padding-bottom: 0;
+}
+
+.card-content h1 {
+  font-weight: bold;
+}
+
+.card-content button {
+  margin-top: 20px;
+  width: 100%;
+  background-color: rgb(56, 221, 56);
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+
+  }
+
+  .hero {
+    height: 400px;
+  }
+
+  #hero-header {
+    font-size: 3rem;
+  }
+
 }
