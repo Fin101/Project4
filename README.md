@@ -135,6 +135,8 @@ Now being able to store and access our data that is viewable, we were now able t
 
 For the JWT_AUTH I needed three views; register, login, and profile view.
 
+When users submit their information in the register form it creates a POST request. Providing the data is valid using the serializer, it's passed through this endpoint and saved into the database. If the data is invalid, the user will recieve an error message displayed in the frontend. 
+
 ```js
 class RegisterView(APIView):
 
@@ -148,6 +150,8 @@ class RegisterView(APIView):
 
         return Response(serializer.errors, status=422)
 ```
+
+Once users have successfully registered, they will be able to login to have access their user profile. However, this endpoint also decifiers if the user has already registered using the **get_user** function by checking if the email address requested is within the database. If this is passed, the POST request will also run the **check_password** function provided by Django’s default user authentication. If the data matches a valid user, the user is given a JSONWebToken which is stored into the localStorage through the frontend and passes the **isAuthenticated** permission. 
 
 ```js
 class LoginView(APIView):
@@ -170,6 +174,8 @@ class LoginView(APIView):
         token = jwt.encode({'sub': user.id}, settings.SECRET_KEY, algorithm='HS256')
         return Response({'token': token, 'message': f'Welcome back {user.username}!'})
 ```
+
+All registered users are given their own profile. Here their checked off travel destinations will be displayed. This is the only endpoint whereby permissions have been enabled and has a single GET endpoint to get the user made the request. This utilises the PopulateUserSerialiser to pull the data.  
 
 ```js
 class ProfileView(APIView):
