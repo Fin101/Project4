@@ -80,6 +80,8 @@ class PreviousLocation(models.Model):
 
 ### Serializer
 
+Now that the models are created, I needed to create serializers to convert them into JSON formatting. This was necessary in order for Django to communicate with the PostgreSQL database. The purpose of the serializers is simply converting data. In the database, data is stored differently to how it needs to be rendered for the API endpoints and is necessary to be able to display data that is clear to those who use the API. The serializers also validate before it is stored into the database, ensuring all required fields are submitted appropriately. 
+
 ```js
 class ValidateSerializer(serializers.ModelSerializer):
 
