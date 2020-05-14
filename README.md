@@ -129,3 +129,70 @@ class PopulatedUserSerializer(serializers.ModelSerializer):
         model = User
         fields = ('username', 'email', 'first_name', 'last_name', 'previous_locations')
 ```
+## Views
+
+Now being able to store and access our data that is viewable, we were now able to look at how our API information would return our data. I needed to implement the Django REST framework to create the views to render the backend data and CRUD functionality. 
+
+For the JWT_AUTH I needed three views; register, login, and profile view.
+
+```js
+class RegisterView(APIView):
+
+    def post(self, request):
+        serializer = ValidateSerializer(data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+
+            return Response({'message': 'Registration successful'})
+
+        return Response(serializer.errors, status=422)
+```
+
+```js
+class LoginView(APIView):
+
+    def get_user(self, username):
+        try:
+            return User.objects.get(username=username)
+        except User.DoesNotExist:
+            raise PermissionDenied({'message': 'Invalid credentials'})
+
+    def post(self, request):
+
+        username = request.data.get('username')
+        password = request.data.get('password')
+
+        user = self.get_user(username)
+        if not user.check_password(password):
+            raise PermissionDenied({'message': 'Invalid credentials'})
+
+        token = jwt.encode({'sub': user.id}, settings.SECRET_KEY, algorithm='HS256')
+        return Response({'token': token, 'message': f'Welcome back {user.username}!'})
+```
+
+```js
+class ProfileView(APIView):
+
+    def get(self, request):
+        user = User.objects.get(pk=request.user.id)
+        serialized_user = PopulatedUserSerializer(user)
+        return Response(serialized_user.data)
+```
+
+I also required a locations list view, where users could seearch through every country and check off their locations, adding them to their profile to be displayed on the map.
+
+```js
+class PreviousLocationListView(APIView):
+
+  permission_classes = (IsAuthenticated, )
+
+  def post(self, request):
+
+    request.data['visitors'] = (request.user.id, )
+    previous_locations = PreviousLocationSerializer(data=request.data)
+    if previous_locations.is_valid():
+      previous_locations.save()
+      return Response(previous_locations.data, HTTP_201_CREATED)
+    return Response(previous_locations.errors, HTTP_422_UNPROCESSABLE_ENTITY)
+```
