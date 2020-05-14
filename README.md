@@ -58,6 +58,26 @@ class User(AbstractUser):
 
 This customised model has three fields; email, first name, and last name. Email is already provided by Django’s default model. I  specified unique as also being **true**, disabling users to register with the same username and prompting the error message shown.
 
+### Locations
+
+I then had to create a locations model using data extracted from a country REST API. In order to display the user's previous travel destinations on an interactive map, I need the longitude and latitude to feature in the model.
+
+```js
+class PreviousLocation(models.Model):
+  country = models.CharField(max_length=50)
+  country_code = models.CharField(max_length=3)
+  longitude = models.FloatField()
+  latitude = models.FloatField()
+  visitors = models.ManyToManyField(
+    User,
+    related_name='previous_locations',
+    blank=True
+  )
+
+  def __str__(self):
+    return f'{self.country}'
+```
+
 ### Serializer
 
 ```js
