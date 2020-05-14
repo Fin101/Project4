@@ -202,3 +202,8 @@ class PreviousLocationListView(APIView):
       return Response(previous_locations.data, HTTP_201_CREATED)
     return Response(previous_locations.errors, HTTP_422_UNPROCESSABLE_ENTITY)
 ```
+
+### On-Going Comments and Bugs
+To display the user's previous travel destinations on their profile page using Mapbox has proved challenging. I'm continueing to resolve the bugs to successfully pass the information and display the maps correctly.
+
+Although the project has bugs regarding the user profile view, having taken on the project solo, I feel I've gained valuable experience through constructing the full-stack app. As opposed to woring within a group, where I may have only worked on a few focussed elements of a project, I'm glad I took the opportunity to take it on solo, covering and experiencing the effects and valuable influences of each element.  
