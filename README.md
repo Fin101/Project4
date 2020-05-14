@@ -133,7 +133,7 @@ class PopulatedUserSerializer(serializers.ModelSerializer):
 
 Now being able to store and access our data that is viewable, we were now able to look at how our API information would return our data. I needed to implement the Django REST framework to create the views to render the backend data and CRUD functionality. 
 
-For the JWT_AUTH I needed three views; register, login, and profile view.
+For the JWT_AUTH I needed four views; register, login, profile view, and a location list view.
 
 When users submit their information in the register form it creates a POST request. Providing the data is valid using the serializer, it's passed through this endpoint and saved into the database. If the data is invalid, the user will recieve an error message displayed in the frontend. 
 
