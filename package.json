@@ -28,7 +28,7 @@
     "bulma": "^0.8.2",
     "css-loader": "^3.5.2",
     "html-webpack-plugin": "^4.2.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-map-gl": "^5.2.3",
